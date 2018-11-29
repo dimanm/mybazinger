@@ -483,11 +483,10 @@ label[name="form__compl-msg2"] {
 	color: #414141;
 }
 label[name*="__err"] {
-	font-family: Consolas;
+	font-family: "Consolas-Bold";
 	font-size: 15px;
 	line-height: 30px;
 	margin-top:-15px;
-	font-weight: 700;
 	color: #414141;
 	display: none;
 }
