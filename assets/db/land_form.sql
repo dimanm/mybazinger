@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 29 2018 г., 09:16
+-- Время создания: Ноя 29 2018 г., 09:32
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -34,9 +34,9 @@ CREATE TABLE `messages` (
   `email` varchar(30) NOT NULL,
   `subject` varchar(30) DEFAULT NULL,
   `message` text,
-  `t_send` int(11) DEFAULT NULL,
-  `t_open` int(11) DEFAULT NULL,
-  `dt` int(11) DEFAULT NULL
+  `t_send` varchar(19) DEFAULT NULL,
+  `t_open` varchar(19) DEFAULT NULL,
+  `dt` varchar(19) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -44,9 +44,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `name`, `email`, `subject`, `message`, `t_send`, `t_open`, `dt`) VALUES
-(7, 'Дмитрий', 'dimitry.myagkov@yandex.ru', 'Заголовок', 'Письмо', 2018, 2018, 0),
-(8, 'Даша', 'dimitry.myagkov@yandex.ru', '', '', 2018, 2018, 0),
-(9, 'Дмитрий', 'dimitry.myagkov@yandex.ru', '', '', 2018, 2018, 0);
+(10, 'thrth', 'dimitry.myagkov@yandex.ru', '', '', '2018-11-29 09:32:15', '2018-11-29 09:32:09', '0:0:6');
 
 --
 -- Индексы сохранённых таблиц
@@ -66,7 +64,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
