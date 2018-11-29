@@ -1,0 +1,541 @@
+/*margins & paddings reset*/
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;  
+}
+/****************************************************************************************/
+/*										site-header										*/
+/****************************************************************************************/
+.site-header {
+	width: 100%;
+	background: rgba(7,7,7,0.3);
+	/*чтобы был над картинкой с рукой с телефоном*/
+	position: relative;
+	z-index: 1; 
+}
+.container {
+	max-width: 1200px;
+	/*
+	g = 30px - ширина отступа между колонками
+	12шт * [g/2 + ширина колонки + g/2] =
+	= 12 * (15px + 70px + 15px) = 1200px
+	*/ 
+	margin: 0 auto; /*центрирование по горизонтали*/
+	display: flex; /*сделать строкой из внутренних блоков*/
+}
+/*в каждой оболочке контейнер имеет специальные свойства*/
+.site-header .container {
+	justify-content: space-between; /*поставить по всей ширине с эквидистантными расстояниями*/
+	flex-wrap: wrap; /*перенос внутреннего блока в начало следующей строки при уменьшении окна браузера*/
+}
+.site-header__logo {
+	margin-top: 16px;
+	margin-left: 15px; /*g/2 слева от логотипа*/
+}
+.container ul {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	list-style-type: none; /*без маркеров*/
+}
+.main-menu a {
+	display: block;
+	font-family: "DroidSans";
+	font-size: 13px;
+	/*
+	"a" находится на середине высоты хидера, задавая его значение своим итерлиньяжем
+	высота хидера = итерлиньяж "a"
+	*/
+	line-height: 100px; /*итерлиньяж "a"*/
+	margin: 0 18px; /*0 - чтобы тень при наведении появлялась на верхней границе хидера*/
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.main-menu a:hover {
+	color: #4bcaff;
+	box-shadow: inset 0 3px 0 0 #4bcaff;
+}
+/*site-header конец*/
+/****************************************************************************************/
+/*						рука с телефоном + девиз + параграф + кнопки					*/
+/****************************************************************************************/
+.first-screen {
+	margin: -100px /*заезд под хидер*/ auto 0;  
+	box-shadow: 0 4px 0 0 #4bcaff; /*нижняя синяя граница*/
+}
+.sl {width: 100%; }
+.sl__slide {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative; /*для выравнивания контейнера внутри*/
+}
+.sl__img {width: 100%; }
+.sl .container {
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	justify-content: flex-end; /*заполнение строки справа налево (колонка с текстом и кнопками находится справа)*/
+}
+[class*="col"] {
+	margin: 0 15px;
+	width: 100%;
+	max-width: 100%;
+	flex: 1 1 100%;
+	display: flex;
+}
+.col-7on12 {
+	/*колонка справа занимает 7/12 колонок макета с отступами между ними*/
+	max-width: calc(100% / 12 * 7 - 15px - 15px);
+	flex-flow: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin-top: 100px; /*пока хидер умещается в одну строку, текст не должен заползать за него (2)*/
+}
+/*1) девиз*/
+.slogan {
+	font-family: "LatoLight";
+	/*font-size: 48px;*/ /*немасштабируемый шрифт девиза*/
+	line-height: 55px;
+	font-size: calc(54vw * 55 / 800); /*масштабируемый шрифт девиза*/
+	color: white;
+	margin-bottom: 18px;
+}
+.slogan span {font-family: "LatoBold"; }
+/*2) параграф*/
+.paragraph {
+	font-family: "LatoLight";
+	font-size: 18px;
+	line-height: 22px;
+	color: white;
+	margin-bottom: 38px;
+}
+/*3) кнопки с текстом*/
+.blue-buttons {display: flex; }
+.blue-buttons a:nth-of-type(1n+2) {margin-left: 40px; } /*если надо добавить еще кнопки справа*/
+.blue-buttons a {
+	font-family: "LatoBold";
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	background-color: #4bcaff;
+	width: 190px;
+	text-align: center;
+	line-height: 59px;
+	border: 3px solid #4bcaff;
+	border-radius: 8px;
+	box-shadow: 0 4px 0 0 #277697;
+	margin-bottom: 49px;
+}
+.blue-buttons a:hover {
+	border: 3px solid white;
+	background-color: transparent; /*прозрачность фона при наведении*/
+	box-shadow:none;
+}
+/*4) иконки*/
+.aavailable {
+	font-family: "LatoLight";
+	font-size: 18px;
+	line-height: 52px;
+	color: white;
+}
+.app-icos {display:flex; }
+.app-icos :nth-child(1n+2) {margin-left: 16px; } /*отступ слева только у иконок*/
+.app-icos a{	
+	width: 52px;
+	height: 52px;
+	background: rgba(0,0,0,0.35);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+a:hover .app-icos__ios {content: url(../img/ios2.png); }
+a:hover .app-icos__android {content: url(../img/android2.png); }
+/*рука с телефоном + девиз + параграф + кнопки конец*/
+/****************************************************************************************/
+/*								site-features (4 кругляша)								*/
+/****************************************************************************************/
+.site-level {
+	max-width: 1200px; 
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column;
+	color: #414042;
+}
+.site-level__name {
+	text-align: center;
+	font-family: "LatoBlack";
+	font-size: 36px;
+	margin-top: 58px;
+}
+.site-level__about {
+	text-align: center;
+	font-family: "LatoLight";
+	font-size: 20px;
+}
+.row {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.col-4 {
+	max-width: calc(100% / 4 - 15px - 15px);
+	flex-flow: column;
+	align-items: center;
+	margin-top: 70px;
+}
+.round-box {display: flex; }
+.round-box a {	
+	width: 160px;
+	height: 160px;
+	background: #414042;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	margin-bottom: 34px;
+}
+.round-box a:hover {background: #4bcaff;}
+.round-box a:hover+.round-box__name {color: #4bcaff;}
+.col-4 div {
+	text-align: center;
+}
+.round-box__name {
+	font-family: "LatoBold";
+	font-size: 15px;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+}
+.round-box__about {
+	font-family: "LatoRegular";
+	font-size: 13px;
+	line-height: 200%;
+	margin-bottom: 94px;
+	width: 227px;
+}
+/*site-features (4 кругляша) конец*/
+/****************************************************************************************/
+/*								site-gallery (4 скриншота)								*/
+/****************************************************************************************/
+.shot-box {display: flex; }
+/* 
+тучка, плюс и бордюр с надписью составляют одну кнопку, при нажатии на любого из них 
+должен выполняться переход по соответствующей ссылке, поэтому всех их обернем "a"
+*/
+.shot-box a {	
+	width: 100%;
+	max-width: 270px;
+	height: 200px;
+	background-color: #4bcaff;	
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	text-decoration: none;
+}
+.shot {
+	width: 100%;
+	height: 100%;
+} 
+/*бордюр с надписью*/
+.shot-name {
+	line-height: 41px;
+	width: 100%;
+	position: relative;
+	bottom: calc(41px * 2 - 19px); /*41px - высота бордюра, 19px - высота плюса*/
+	background-color: #414042;
+	opacity: 0.65;
+	border-radius: 0 0 8px 8px; /*закругления углов только снизу*/
+	/*нет z-index: 1;, т.к. в коде стоит после тучки*/
+	font-family: "LatoBold";
+	font-size: 15px;
+	color: #4bcaff;
+	text-transform: uppercase;
+}
+.plus {
+	position: relative;
+	bottom: calc(200px / 2 + 19px / 2);
+	z-index: -1;
+}
+.shot-box a:hover .shot {opacity: 0.4; }
+.shot-box a:hover .plus {z-index: 0; }
+.shot-box__about {
+	font-family: "LatoRegular";
+	font-size: 13px;
+	line-height: 200%;
+	width: 227px;
+	margin-top:27px;
+}
+/*site-gallery (4 скриншота) конец*/
+/****************************************************************************************/
+/*										site-video										*/
+/****************************************************************************************/
+.site-video {
+	background-image: url("../img/video.png");
+	background-color: #4bcaff;
+	background-size: cover;
+	width: 100%;
+	height: calc(550 / 1480 * 100vw);
+	margin-top: 111px;
+}
+.site-video:hover {background-image: url("../img/video_60alpha.png"); }
+.col-1 {
+	max-width: calc(100% - 15px - 15px);
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+}
+.col-1 a {
+	font-family: "LatoBold";
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 40px;
+	color: white;
+	width: 115px;
+	text-align: center;
+	line-height: 75px;
+	border: 3px solid white;
+	border-radius: 8px;
+	margin-bottom: 33px;
+}
+.site-video__name {
+	font-family: "LatoLight";
+	color: white;
+	line-height: 55px;
+	font-size: calc(54vw * 55 / 800);
+	margin-bottom: 19px;
+}
+.site-video__name span {font-family: "LatoBold"; }
+.site-video__paragraph {
+	max-width: 700px;
+	font-family: "LatoLight";
+	font-size: 18px;
+	line-height: 20px;
+	color: white;
+}
+/*site-video конец*/
+/****************************************************************************************/
+/*										site-prices										*/
+/****************************************************************************************/
+.vcentering {align-items: center; }
+.col-3on12,
+.col-4on12 {
+	margin-top: 70px;
+	text-align: center;
+	color: #dad7d7;
+	flex-flow: column;
+	justify-content: center;
+}
+.col-3on12 {max-width: calc(100% / 12 * 3 - 15px); }
+.col-4on12 {max-width: calc(100% / 12 * 4 - 15px - 15px); }
+.col-3on12 div:not(.price), 
+.col-4on12 div:not(.price) {
+	font-family: "LatoBold";
+	font-size: 17px;
+	line-height: 70px;
+	text-transform: uppercase;
+}
+.price {
+	font-family: "DroidSansBold";
+	font-size: 85px;
+	line-height: 115px;
+}
+.col-3on12 a,
+.col-4on12 a {
+	display: inline-block;
+	font-family: "LatoBold";
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 15px;
+	color: white;
+	width: 171px;
+	height: 49px;
+	text-align: center;
+	line-height: 49px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+.price-box__left a,	.price-box__left .price {background:#91c46b; }
+.price-box__center a, .price-box__center .price {background:#4bcaff; }
+.price-box__right a, .price-box__right .price {background:#fd7c00; }
+.price-box__left:hover div:not(.price) {color:#91c46b; }
+.price-box__center:hover div:not(.price) {color:#4bcaff; }
+.price-box__right:hover div:not(.price) {color:#fd7c00; }
+.col-4on12, .col-3on12 {border: 1px solid #dad7d7; }
+/*site-prices конец*/
+/****************************************************************************************/
+/*									site-testimonials									*/
+/****************************************************************************************/
+.site-testimonials {background: white; }
+.col-6on12 {
+	max-width: calc(100% / 12 * 6 - 15px - 15px);
+	flex-flow: row;
+	align-items: center;
+	margin-bottom: 112px;
+}
+.signature {
+	font-family: "latoBoldItalic";
+	text-align: right;
+	flex-flow: row;
+}
+.col-6on12 img {display: block; }
+.testimonial {
+	margin-left: 40px;
+	font-family: "LatoBold";
+	font-size: 14px; 
+	color:#4bcaff;
+}
+.site-testimonials .site-level__name {margin-bottom: 43px; }
+/*site-testimonials конец*/
+/****************************************************************************************/
+/*								site-download, site-map, footer 						*/
+/****************************************************************************************/
+.download {
+	background: #414042;
+	height: 210px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+.download div {
+	font-family: "LatoBold";
+	font-size: 55px;
+	line-height: 115px;
+	color: white;
+}
+.download a {
+	font-family: "LatoBold";
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 15px;
+	line-height: 59px;
+	color: white;
+	width: 190px;
+	border-radius: 8px;
+	border: 3px solid white;
+}
+.download a:hover {
+	background-color: #4bcaff;
+	border: 3px solid #4bcaff;
+	box-shadow: 0 4px 0 0 #277697;
+	color: #414042;
+}
+.site-map {
+	/*background-image: url("../img/map.jpg");
+	background-size: cover;
+	background-position: center;*/
+	width: 100%;
+	height: 46vw;
+	min-height: 460px;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.ymap{
+	height: 46vw;
+	width: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+form {
+	position: absolute;
+	z-index: 1;
+	margin:0 auto;
+	background-color: rgba(75, 202, 255,0.65);
+	border-radius: 7px;
+	padding: 0 27px;
+	width: calc(325px - 27px * 2); /*макс. ширина для внутренних блоков*/
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: flex-start;
+	box-shadow: 0 0 1px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.15); /*свечение и тень соотв.*/
+}
+form[name="form__dwn"] {
+	margin: 0 auto;
+	position: relative;
+}
+.hidden {display: none; }
+label {
+	font-family: "LatoBold";
+	color: white;
+	line-height: 84px;
+}
+label[name="form__name"] {
+	font-size: 36px;
+}
+label[name*="form__compl-msg"] {display: none; }
+label[name="form__compl-msg1"] {font-size: 30px; }
+label[name="form__compl-msg2"] {
+	font-size: 20px;
+	color: #414141;
+}
+label[name*="__err"] {
+	font-family: Consolas;
+	font-size: 15px;
+	line-height: 30px;
+	margin-top:-15px;
+	font-weight: 700;
+	color: #414141;
+	display: none;
+}
+input,
+textarea {
+	text-align: center;
+	font-family: Arial;
+	font-size: 14px;
+	width: 100%;
+	height: 34px;
+	border-radius: 5px;
+	border: none;
+}
+input {margin-bottom: 14px; }
+textarea {
+	max-height: 145px;
+	height: 120px;
+	padding: 12.5px 0;
+	margin-bottom: 20px;
+	resize: none;
+}
+button {
+	text-align: center;
+	font-family: "LatoBold";
+	font-size: 15px;
+	height: 45px;
+	border: none;
+	box-shadow: 0 4px 0 0 #313032;
+	color: #4bcaff;
+	background-color: #414042;
+	width: 190px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 20px;  
+}
+footer {
+	padding:0 15px;
+	background: #414042;
+	height: 110px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: "LatoBold";
+	font-size:12px;
+	color: rgb(167,167,167);
+}
+footer div,
+footer a {
+	color: rgba(255,255,255,0.25);
+	text-decoration: none;
+}

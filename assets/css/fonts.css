@@ -1,0 +1,69 @@
+@font-face {
+	font-family: "DroidSans";
+	src: 
+	url("../fonts/droidsans.woff2") format("woff2"),
+	url("../fonts/droidsans.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "DroidSansBold";
+	src: 
+	url("../fonts/droidsans-bold.woff2") format("woff2"),
+	url("../fonts/droidsans-bold.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "LatoRegular";
+	src: 
+	url("../fonts/lato-regular.woff2") format("woff2"),
+	url("../fonts/lato-regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "LatoLight";
+	src: 
+	url("../fonts/lato-light.woff2") format("woff2"),
+	url("../fonts/lato-light.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "LatoBold";
+	src: 
+	url("../fonts/lato-bold.woff2") format("woff2"),
+	url("../fonts/lato-bold.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "LatoBlack";
+	src: 
+	url("../fonts/lato-black.woff2") format("woff2"),
+	url("../fonts/lato-black.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "latoBoldItalic";
+	src: 
+	url("../fonts/lato-bolditalic.woff2") format("woff2"),
+	url("../fonts/lato-bolditalic.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+  font-family: "MS-Gothic";
+  src: url("../fonts/MSGothic.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/MSGothic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/MSGothic.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/MSGothic.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/MSGothic.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/MSGothic.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/MSGothic.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,139 @@
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+	background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+/* Arrows */
+.slick-prev,
+.slick-next 
+{
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	text-align: center;
+	cursor: pointer;
+	background: rgba(29%, 79%, 100%, 0.2);
+	color: white;
+	font-size: 0;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+	outline: none;
+}
+.slick-prev:before,
+.slick-next:before
+{
+	font-family: "MS-Gothic";
+	font-size: 12px;
+	line-height: 55px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev
+{
+	left: 0;
+}
+.slick-prev:before
+{
+	content: '<';
+}
+
+.slick-next
+{
+	right: 0;
+}
+
+.slick-next:before
+{
+	content: '>';
+}
+.slick-next:hover,
+.slick-prev:hover
+{
+	background: rgba(29%, 79%, 100%, 1);
+	color: #414042;
+	transition-property: background;
+	transition-duration: 0.4s;
+}
+/* Dots */
+.slick-dotted.slick-slider
+{
+
+}
+.slick-dots
+{   
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	height: 16px;
+	list-style: none;
+	text-align: center;
+}
+.slick-dots li {
+	border-radius: 50%;
+	border: 1px solid white;    
+	width: 10px;
+	height: 10px;
+	margin: 0 6px;
+	cursor: pointer;
+}
+
+.slick-dots li button {
+	display: none;
+}
+
+.slick-dots li.slick-active {
+	border: none;
+	width: 16px;
+	height: 16px;
+	margin: 0 4px;
+	background: #4bcaff;
+	transition-property: background;
+	transition-duration: 0.5s;
+}
+.site-testimonials .slick-dots {
+	bottom: 39px;
+	height: 6px;
+}
+.site-testimonials .slick-dots li {
+	width: 50px;
+	height: 100%;
+	border-radius: 0;
+	background: rgba(29%, 79%, 100%, 0.32);
+}
+.site-testimonials .slick-dots li.slick-active {
+	border: none;
+	background: rgba(29%, 79%, 100%, 1);
+	transition-property: background;
+	transition-duration: 0.5s;
+}
+.site-testimonials .slick-prev {
+	left: 50%;
+	z-index: -1;
+}
+.site-testimonials .slick-next {
+	right: 50%;
+	z-index: -1;
+}
