@@ -38,7 +38,7 @@ mb_internal_encoding("UTF-8");
 	</div>
 </header>
 <?
-include_once "assets/php/copies_withot_bom/pdo_obj.php";
+include_once "assets/php/pdo_obj.php";
 $db = new database();
 switch ($_GET["floor"]) {
 	case "":

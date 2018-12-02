@@ -45,3 +45,4 @@
 	.col-4 {max-width: calc(100% - 15px - 15px); } /*перестройка колонок с кругляшами и скриншотами*/
 	.col-3on12, .col-4on12 {max-width: calc(100% - 15px - 15px ); } /*перестройка колонок с ценами*/
 	.col-6on12 {max-width: calc(100% - 15px - 15px ); } /*site-testimonials*/
+	.download div {font-size: 30px; }

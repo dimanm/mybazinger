@@ -118,6 +118,17 @@ function sendForm(e) {
 				if (data.indexOf("отправлено письмо")!=-1) { //форма схлопывается, только если нет ни одной ошибки
 					$('form[name="form__reg"] *').css('display', 'none');
 					$('form[name="form__reg"] label[name*="form__compl-msg"]').css('display', 'initial');
+					/*
+					высота блока с картой при открытой форме =
+					= (сверху вниз) 111*2 + 1*2 + 84 + 34*3 +14*3 + 120 + 20 +45 + 20 = 657
+					высота схлопнутой формы = 1 * 2 + 84 * 2 = 170
+					=>
+					margin-top/bottom схлопнутой формы = (657 - 170) / 2 = 243.5
+
+					*/
+					$('form[name="form__reg"]').css('margin', '243.5px auto');
+					//карта встает на место после схлопывания формы только при изм-я размера окна браузера
+					$('.ymap').css('height', '100%');
 				};
 			}//последний параметр
 		}).done(function(){
@@ -161,7 +172,7 @@ function dwnForm(e) {
 		});
 	};
 };
-//курта
+//карта
 ymaps.ready(init);
 function init(){ 
 	// Создание карты.    
@@ -179,4 +190,4 @@ function init(){
 	});
 	myMap.geoObjects.add(myPlacemark1);
 	myMap.geoObjects.add(myPlacemark2);
-}
+};
