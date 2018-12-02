@@ -274,7 +274,7 @@ a:hover .app-icos__android {content: url(../img/android2.png); }
 	font-size: 13px;
 	line-height: 200%;
 	width: 227px;
-	margin-top:27px;
+	margin:27px 0 111px;
 }
 /*site-gallery (4 скриншота) конец*/
 /****************************************************************************************/
@@ -285,8 +285,7 @@ a:hover .app-icos__android {content: url(../img/android2.png); }
 	background-color: #4bcaff;
 	background-size: cover;
 	width: 100%;
-	height: calc(550 / 1480 * 100vw);
-	margin-top: 111px;
+	height: calc(9 / 16 * 100vw);
 }
 .site-video:hover {background-image: url("../img/video_60alpha.png"); }
 .col-1 {
@@ -330,7 +329,8 @@ a:hover .app-icos__android {content: url(../img/android2.png); }
 .vcentering {align-items: center; }
 .col-3on12,
 .col-4on12 {
-	margin-top: 70px;
+	margin-top: 60px;
+	margin-bottom: 20px;
 	text-align: center;
 	color: #dad7d7;
 	flex-flow: column;
@@ -436,23 +436,20 @@ a:hover .app-icos__android {content: url(../img/android2.png); }
 	background-size: cover;
 	background-position: center;*/
 	width: 100%;
-	height: 46vw;
-	min-height: 460px;
 	justify-content: center;
 	align-items: center;
 	position: relative;
 }
 .ymap{
-	height: 46vw;
 	width: 100%;
+	height: 100%;
 	position: absolute;
 	top:0;
 	left:0;
 }
 form {
-	position: absolute;
 	z-index: 1;
-	margin:0 auto;
+	margin:111px auto;
 	background-color: rgba(75, 202, 255,0.65);
 	border-radius: 7px;
 	padding: 0 27px;
@@ -537,4 +534,30 @@ footer div,
 footer a {
 	color: rgba(255,255,255,0.25);
 	text-decoration: none;
+}
+.preload {
+	position: fixed;
+	/*
+	чтобы left задавал смещение не левой границы, а центр блока, 
+	надо margin-left := - (ширина блока) / 2;
+	по аналогии для других смещений 
+	*/
+	margin-top: -50px;
+	margin-left: -50px;
+	top: 50%; 
+	left: 50%;
+	text-align: center;
+	z-index: 3000;
+	display: none;
+	opacity: 0;
+}
+.preload img {
+	width: 100px;
+	height: 100px;
+
+}
+.load_msg{
+	font-family: "LatoBold";
+	font-size: 30px;
+	color: #4bcaff;
 }

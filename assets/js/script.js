@@ -52,10 +52,10 @@ function sendForm(e) {
 		$('label[name="name__err-msg1"]').css('display', 'initial');
 		$('label[name="name__err-msg2"]').css('display', 'none');
 		$('label[name="name__err-msg3"]').css('display', 'none');
-	} else if (name.value.length<2 | name.value.length>30) {
+	} else if (name.value.length<5 || name.value.length>30) {
 		inputErrStyle("name",1);
 		//name.value="";
-		//name.placeholder="Укажите имя от 2 до 30 символов";
+		//name.placeholder="Укажите имя от 5 до 30 символов";
 		$('label[name="name__err-msg1"]').css('display', 'none');
 		$('label[name="name__err-msg2"]').css('display', 'initial');
 		$('label[name="name__err-msg3"]').css('display', 'none');
@@ -108,15 +108,20 @@ function sendForm(e) {
 			url: "assets/php/ajaxForm.php",
 			data: data,
 			type: "POST",
+			beforeSend: function(){
+				$('.preload').css('display', 'initial');
+				$(".preload").animate({opacity:1},0);
+			},
 			success: function(data){
-				if (data.localeCompare("ok")==0) {
-					alert("Вы зарегестрированы!\nНа почту "+email.value+" отправлено письмо");
+				alert(data);
+				//data.localeCompare("")
+				if (data.indexOf("отправлено письмо")!=-1) { //форма схлопывается, только если нет ни одной ошибки
 					$('form[name="form__reg"] *').css('display', 'none');
 					$('form[name="form__reg"] label[name*="form__compl-msg"]').css('display', 'initial');
-				} else if (data.localeCompare("error-mail")==0) {
-					alert("Не удалось отправить письмо на почту "+email.value);
 				};
 			}//последний параметр
+		}).done(function(){
+			$(".preload").animate({opacity:0},500, function(){$(".preload").css("display", "none");});
 		});
 	};
 };
@@ -140,11 +145,19 @@ function dwnForm(e) {
 			url: "assets/php/ajaxDwn.php",
 			data: data,
 			type: "POST",
+			beforeSend: function(){
+				$('.preload').css('display', 'initial');
+				$(".preload").animate({opacity:1},0);
+			},
 			success: function(data){
 				alert(data);
-				$('form[name="form__dwn"] *').css('display', 'none');
-				$('form[name="form__dwn"] label[name*="form__compl-msg"]').css('display', 'initial');
+				if (data.indexOf("луйста")==-1) { //форма схлопывается, только если нет ни одной ошибки
+					$('.form__dwn-el').css('display', 'none');
+					$('form[name="form__dwn"] label[name*="form__compl-msg"]').css('display', 'initial');
+				};
 			}//последний параметр
+		}).done(function(){
+			$(".preload").animate({opacity:0},500, function(){$(".preload").css("display", "none");})
 		});
 	};
 };
